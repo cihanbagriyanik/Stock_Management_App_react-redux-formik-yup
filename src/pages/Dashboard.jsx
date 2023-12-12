@@ -54,7 +54,7 @@ import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import BusinessTwoToneIcon from "@mui/icons-material/BusinessTwoTone";
 import StoreTwoToneIcon from "@mui/icons-material/StoreTwoTone";
 import Inventory2TwoToneIcon from "@mui/icons-material/Inventory2TwoTone";
-import { Grid, makeStyles, styled } from "@mui/material";
+import { Grid, Paper, makeStyles, styled } from "@mui/material";
 
 
 const drawerWidth = 240;
@@ -241,14 +241,14 @@ function Dashboard(props) {
             variant="h4"
             component="h1"
             color="error"
-            sx={{ textAlign: "center" }}
+            sx={{ textAlign: "center", marginBottom:"3rem" }}
           >
             Dashboard
           </Typography>
 
           <Box sx={{ width: "100%" }}>
             <Grid container rowSpacing={3} columnSpacing={{ xs: 3 }}>
-              <Grid xs={4}>
+              <Grid xs={4} >
                 <Item>1</Item>
               </Grid>
               <Grid xs={4}>

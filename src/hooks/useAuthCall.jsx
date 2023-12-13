@@ -61,7 +61,26 @@ const useAuthCall = () => {
     }
   };
 
-  return { register, login, logOut };
+  /* -------------------------------------------------------------------------- */
+  const listFirms = async (response) => {
+    dispatch(fetchStart());
+    try {
+      await axios.get(`${BASE_URL}firms/`),
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        };
+      const firms = response.data;
+
+      dispatch(fetchSuccess(firms));
+    } catch (error) {
+      dispatch(fetchFail());
+    }
+  };
+  /* -------------------------------------------------------------------------- */
+
+  return { register, login, logOut, listFirms };
 };
 
 export default useAuthCall;

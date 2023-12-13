@@ -9,10 +9,7 @@ export const loginAsync = createAsyncThunk(
   async ({ values, navigate }, { dispatch }) => {
     console.log(values);
     try {
-      const { data } = await axios.post(
-        `${BASE_URL}auth/login/`,
-        values
-      );
+      const { data } = await axios.post(`${BASE_URL}auth/login/`, values);
       toastSuccessNotify("Login performed");
       navigate("/stock");
       return data;
@@ -23,16 +20,12 @@ export const loginAsync = createAsyncThunk(
   }
 );
 
-
 export const registerAsync = createAsyncThunk(
   "auth/register",
   async ({ values, navigate }, { dispatch }) => {
     console.log(values);
     try {
-      const { data } = await axios.post(
-        `${BASE_URL}users/`,
-        values
-      );
+      const { data } = await axios.post(`${BASE_URL}users/`, values);
       toastSuccessNotify("Register performed");
       navigate("/stock");
       return data;
@@ -46,7 +39,7 @@ export const registerAsync = createAsyncThunk(
 export const logoutAsync = createAsyncThunk(
   "auth/logout",
   async (navigate, { dispatch, getState }) => {
-    const { token } = getState().auth; 
+    const { token } = getState().auth;
     try {
       await axios.get(`${BASE_URL}auth/logout/`, {
         headers: {

@@ -10,6 +10,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const useAuthCall = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,10 +20,7 @@ const useAuthCall = () => {
   const register = async (userInfo) => {
     dispatch(fetchStart());
     try {
-      const { data } = await axios.post(
-        "https://17102.fullstack.clarusway.com/users/",
-        userInfo
-      );
+      const { data } = await axios.post(`${BASE_URL}users/`, userInfo);
       // console.log("register", data);
       dispatch(registerSuccess(data));
       navigate("/stock");
@@ -32,10 +31,7 @@ const useAuthCall = () => {
   const login = async (userInfo) => {
     dispatch(fetchStart());
     try {
-      const { data } = await axios.post(
-        "https://17102.fullstack.clarusway.com/auth/login/",
-        userInfo
-      );
+      const { data } = await axios.post(`${BASE_URL}auth/login/`, userInfo);
       dispatch(loginSuccess(data));
       toastSuccessNotify("Login performed");
       navigate("/stock");
@@ -50,7 +46,7 @@ const useAuthCall = () => {
   const logOut = async () => {
     dispatch(fetchStart());
     try {
-      await axios.get("https://17102.fullstack.clarusway.com/auth/logout", {
+      await axios.get(`${BASE_URL}auth/logout/`, {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -69,12 +65,3 @@ const useAuthCall = () => {
 };
 
 export default useAuthCall;
-
-// https://react.dev/learn/reusing-logic-with-custom-hooks
-
-//! Birden fazla componentte aynı fonksiyona veya fonksiyonlara ihtiyacım varsa (fetch gibi) ve bu fonksiyonlar içerisinde hooklara ihtiyaç duyuyorsam dispatch,state gibi o zaman custom hook yazmak mantıklıdır.
-//* custom hooklar "use" kelimesiyle başlar.
-//+ custom hooklar jsx return etmez.
-//* custom hookslar parametre alabilirler.
-//? birden fazla değer veya fonksiyon paylaşabiliriz. Eğer tek bir değer veya fonskiyon paylaşacaksak return deger dememiz yeterli. Ama birden fazlaysa o zaman object içerisinde değerlerimi, fonksiyonlarımı paylaşabilirim.
-//? Tek değer paylaştığımızda kullancağımız componentte direk olarka çağırabiliriz. Ama birden fazla değer paylaşıyorsak kullanırken destructuring yapmalıyız.

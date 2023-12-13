@@ -22,8 +22,6 @@ const authSlice = createSlice({
       state.token = payload?.token;
     },
 
-    //! user bilgisi farklı geldiği için ayrı slice açtık
-
     loginSuccess: (state, { payload }) => {
       state.loading = false;
       state.currentUser = payload?.user?.username;

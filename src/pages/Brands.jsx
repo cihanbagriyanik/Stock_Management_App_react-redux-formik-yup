@@ -2,14 +2,14 @@ import React from "react";
 
 import { Box, Typography } from "@mui/material";
 
-const Sales = () => {
+const Brands = () => {
   return (
     <Box>
       <Typography variant="h4" component="h1" color="error">
-        Sales
+        Brands
       </Typography>
     </Box>
   );
 };
 
-export default Sales;
+export default Brands;

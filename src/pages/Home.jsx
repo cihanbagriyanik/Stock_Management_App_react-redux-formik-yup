@@ -9,7 +9,7 @@ const Home = () => {
         variant="h4"
         component="h1"
         color="error"
-        sx={{ textAlign: "center", marginBottom: "3rem" }}
+        sx={{ textAlign: "center" }}
       >
         Dashboard
       </Typography>

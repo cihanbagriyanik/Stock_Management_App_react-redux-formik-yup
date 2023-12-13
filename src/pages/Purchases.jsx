@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+
+import { Box, Typography } from "@mui/material";
 
 const Purchases = () => {
   return (
-    <div>Purchases</div>
-  )
-}
+    <Box>
+      <Typography variant="h4" component="h1" color="error">
+        Purchases
+      </Typography>
+    </Box>
+  );
+};
 
-export default Purchases
+export default Purchases;

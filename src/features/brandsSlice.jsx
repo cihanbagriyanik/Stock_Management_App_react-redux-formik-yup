@@ -23,7 +23,7 @@ const brandsSlice = createSlice({
     getBrands: (state, { payload }) => {
       state.loading = false;
       state.error = false;
-      state.firms = payload?.data;
+      state.brands = payload?.data;
     },
 
     // createBrandSuccess: (state, { payload }) => {

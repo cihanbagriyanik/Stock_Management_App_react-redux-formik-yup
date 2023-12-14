@@ -16,9 +16,9 @@ import { useSelector } from "react-redux";
 
 const BrandsCard = () => {
   const { brandsList } = useBrandsCall();
-  const { brands } = useSelector((state) => state.brands);
+  const { brands } = useSelector((state) => state?.brands);
 
-  console.log(brands);
+  // console.log(brands);
 
   useEffect(() => {
     brandsList();
@@ -29,7 +29,11 @@ const BrandsCard = () => {
       {brands.map((a) => {
         return (
           <Card
-            sx={{ maxWidth: 300, boxShadow: "3px 3px 15px gray" }}
+            sx={{
+              width: 380,
+              height: 380,
+              boxShadow: "3px 3px 15px gray",
+            }}
             key={a._id}
           >
             <CardContent>
@@ -39,9 +43,17 @@ const BrandsCard = () => {
             </CardContent>
 
             <CardMedia
-              sx={{ height: 140 }}
+              sx={{
+                width: "80%",
+                height: "50%",
+                margin: "auto",
+                
+                // display:"block",
+                // objectFit:"fill",
+                // backgroundRepeat:"no-repeat" 
+              }}
               image={a.image}
-              title="green iguana"
+              title="img"
             />
 
             <CardActions
@@ -49,10 +61,11 @@ const BrandsCard = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                
               }}
               disableSpacing
             >
-              <Box>
+              <Box sx={{ margin: "auto" }}>
                 <Button size="small">
                   <EditIcon />
                 </Button>

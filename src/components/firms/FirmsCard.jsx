@@ -8,12 +8,11 @@ import Typography from "@mui/material/Typography";
 
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import useAuthCall from "../../hooks/useAuthCall";
+
 import { Box } from "@mui/material";
 import useFirmsCall from "../../hooks/useFirmsCall";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Image } from "@mui/icons-material";
 
 const FirmsCard = () => {
   const { firmsList } = useFirmsCall();

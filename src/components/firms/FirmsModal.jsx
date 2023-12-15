@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
+import { Formik } from "formik";
 
 const style = {
   position: "absolute",
@@ -19,7 +20,14 @@ const style = {
 
 const FirmsModal = ({ open, handleClose }) => {
   return (
-    <div>
+    <Formik
+      initialValues={{
+        name: "",
+        phone: "",
+        address: "",
+        image: "",
+      }}
+    >
       <Modal
         open={open}
         onClose={handleClose}
@@ -59,13 +67,13 @@ const FirmsModal = ({ open, handleClose }) => {
             />
           </Box>
           <Box>
-            <Button variant="contained" fullWidth>
+            <Button variant="contained" fullWidthuß>
               Create Firm
             </Button>
           </Box>
         </Box>
       </Modal>
-    </div>
+    </Formik>
   );
 };
 

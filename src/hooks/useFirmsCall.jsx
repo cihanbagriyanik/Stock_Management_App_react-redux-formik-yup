@@ -31,19 +31,21 @@ const useFirmsCall = () => {
     }
   };
 
-  //   const register = async (userInfo) => {
-  //     dispatch(fetchStart());
-  //     try {
-  //       const { data } = await axios.post(`${BASE_URL}users/`, userInfo);
-  //       // console.log("register", data);
-  //       dispatch(registerSuccess(data));
-  //       navigate("/stock");
-  //     } catch (error) {
-  //       dispatch(fetchFail());
-  //     }
-  //   };
+  const register = async (firmsInfo) => {
+    dispatch(fetchStart());
+    try {
+      const { data } = await axios.post(`${BASE_URL}firms/`, firmsInfo);
+      // console.log("register", data);
+      dispatch(createFirmSuccess(data));
+      toastSuccessNotify("New Firm created");
+      navigate("/firms");
+    } catch (error) {
+      dispatch(fetchFail());
+      toastErrorNotify("New Firm could not created");
+    }
+  };
 
-  return { firmsList };
+  return { firmsList, register };
 };
 
 export default useFirmsCall;

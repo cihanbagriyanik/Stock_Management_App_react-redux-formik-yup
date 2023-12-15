@@ -30,7 +30,8 @@ const FirmsCard = () => {
         return (
           <Card
             sx={{
-              maxWidth: 400,
+              width: 380,
+              height: 380,
               boxShadow: "3px 3px 15px gray",
             }}
             key={a._id}
@@ -46,8 +47,8 @@ const FirmsCard = () => {
 
             <CardMedia
               sx={{
-                height: 140,
-                width: 350,
+                height: "40%",
+                width: "80%",
                 margin: "auto",
 
                 // border: "1px solid red",

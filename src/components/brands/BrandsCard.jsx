@@ -30,9 +30,12 @@ const BrandsCard = () => {
         return (
           <Card
             sx={{
-              width: 380,
-              height: 380,
+              width: 390,
+              height: 390,
               boxShadow: "3px 3px 15px gray",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
             }}
             key={a._id}
           >
@@ -44,16 +47,14 @@ const BrandsCard = () => {
 
             <CardMedia
               sx={{
-                width: "80%",
-                height: "50%",
+                height: 140,
+                width: 170,
                 margin: "auto",
-                
-                // display:"block",
-                // objectFit:"fill",
-                // backgroundRepeat:"no-repeat" 
+                objectFit: "contain",
               }}
               image={a.image}
               title="img"
+              component="img"
             />
 
             <CardActions
@@ -61,11 +62,10 @@ const BrandsCard = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                
               }}
               disableSpacing
             >
-              <Box sx={{ margin: "auto" }}>
+              <Box sx={{ padding: "2rem" }}>
                 <Button size="small">
                   <EditIcon />
                 </Button>

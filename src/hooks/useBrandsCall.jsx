@@ -31,17 +31,17 @@ const useBrandsCall = () => {
     }
   };
 
-  //   const register = async (userInfo) => {
-  //     dispatch(fetchStart());
-  //     try {
-  //       const { data } = await axios.post(`${BASE_URL}users/`, userInfo);
-  //       // console.log("register", data);
-  //       dispatch(registerSuccess(data));
-  //       navigate("/stock");
-  //     } catch (error) {
-  //       dispatch(fetchFail());
-  //     }
-  //   };
+    // const register = async (userInfo) => {
+    //   dispatch(fetchStart());
+    //   try {
+    //     const { data } = await axios.post(`${BASE_URL}users/`, userInfo);
+    //     // console.log("register", data);
+    //     dispatch(registerSuccess(data));
+    //     navigate("/stock");
+    //   } catch (error) {
+    //     dispatch(fetchFail());
+    //   }
+    // };
 
   return { brandsList };
 };

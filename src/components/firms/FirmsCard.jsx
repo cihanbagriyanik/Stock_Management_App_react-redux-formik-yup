@@ -30,8 +30,12 @@ const FirmsCard = () => {
         return (
           <Card
             sx={{
-              width: 380,
-              height: 380,
+              width: 390,
+              height: 390,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              padding: "0.5rem",
               boxShadow: "3px 3px 15px gray",
             }}
             key={a._id}
@@ -47,14 +51,14 @@ const FirmsCard = () => {
 
             <CardMedia
               sx={{
-                height: "40%",
-                width: "80%",
+                height: 140,
+                width: 170,
                 margin: "auto",
-
-                // border: "1px solid red",
+                objectFit: "contain",
               }}
               image={a.image}
               title="image"
+              component="img"
             />
 
             <CardContent>

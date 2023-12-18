@@ -14,14 +14,14 @@ import useFirmsCall from "../../hooks/useFirmsCall";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const FirmsCard = ({ handleOpen, info, setInfo }) => {
+const FirmsCard = ({ handleOpen, setInfo }) => {
   const { firmsList, removeFirm } = useFirmsCall();
   const { firms } = useSelector((state) => state.firms);
 
   // console.log(firms);
 
   useEffect(() => {
-    firmsList();
+    firmsList("firms");
   }, []);
 
   return (

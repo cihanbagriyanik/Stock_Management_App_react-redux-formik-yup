@@ -52,7 +52,7 @@ const Firms = () => {
           flexWrap: "wrap",
         }}
       >
-        <FirmsCard handleOpen={handleOpen} info={info} setInfo={setInfo} />
+        <FirmsCard handleOpen={handleOpen} setInfo={setInfo} />
       </Box>
     </>
   );

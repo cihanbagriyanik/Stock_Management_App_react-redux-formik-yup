@@ -1,14 +1,22 @@
-import React from "react";
-
 import { Box, Button, Typography } from "@mui/material";
-import BrandsCard from "../components/brands/BrandsCard";
 import BrandsModal from "../components/brands/BrandsModal";
+import BrandsCard from "../components/brands/BrandsCard";
 import { useState } from "react";
+
+const initialState = {
+  name: "",
+  image: "",
+};
 
 const Brands = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setInfo(initialState);
+  };
+
+  const [info, setInfo] = useState(initialState);
 
   return (
     <>
@@ -25,7 +33,12 @@ const Brands = () => {
         >
           New Brand
         </Button>
-        <BrandsModal open={open} handleClose={handleClose} />
+        <BrandsModal
+          open={open}
+          handleClose={handleClose}
+          info={info}
+          setInfo={setInfo}
+        />
       </Box>
 
       <Box
@@ -37,7 +50,7 @@ const Brands = () => {
           flexWrap: "wrap",
         }}
       >
-        <BrandsCard />
+        <BrandsCard handleOpen={handleOpen} setInfo={setInfo} />
       </Box>
     </>
   );

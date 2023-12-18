@@ -1,9 +1,9 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
+import useStockCall from "../../hooks/useBrandsCall";
 
 const style = {
   position: "absolute",
@@ -17,7 +17,26 @@ const style = {
   p: 4,
 };
 
-const BrandsModal = ({ open, handleClose }) => {
+const BrandsModal = ({ open, handleClose, info, setInfo }) => {
+  const { createBrand, updateBrand } = useStockCall();
+
+  const handleChange = (e) => {
+    // console.log(e.target.id);
+    setInfo({ ...info, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(e);
+    if (info.id) {
+      //put
+      updateBrand("brands", info);
+    } else {
+      //post
+      createBrand("brands", info);
+    }
+    handleClose();
+  };
   return (
     <div>
       <Modal
@@ -26,26 +45,39 @@ const BrandsModal = ({ open, handleClose }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Box sx={{ marginBottom: "1rem" }}>
+        <Box sx={style} component="form" onSubmit={handleSubmit}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+              marginBottom: "1rem",
+            }}
+          >
             <TextField
-              id="outlined"
               label="Brand Name"
+              name="name"
+              id="name"
               type="text"
+              variant="outlined"
+              value={info.name}
               required
-              sx={{ width: "100%", marginBottom: "1rem" }}
+              onChange={handleChange}
             />
             <TextField
-              id="outlined"
-              label="Image Url"
+              label="Firm Logo"
+              name="image"
+              id="image"
               type="text"
+              variant="outlined"
+              value={info.image}
               required
-              sx={{ width: "100%", marginBottom: "1rem" }}
+              onChange={handleChange}
             />
           </Box>
           <Box>
-            <Button variant="contained" fullWidth>
-              Submit Brand
+            <Button type="submit" variant="contained" fullWidth>
+              {info.id ? "Update Brand" : "Submit Brand"}
             </Button>
           </Box>
         </Box>

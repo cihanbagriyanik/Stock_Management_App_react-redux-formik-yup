@@ -14,14 +14,14 @@ import useBrandsCall from "../../hooks/useBrandsCall";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const BrandsCard = () => {
-  const { brandsList } = useBrandsCall();
+const BrandsCard = ({ handleOpen, setInfo }) => {
+  const { brandsList, removeBrand } = useBrandsCall();
   const { brands } = useSelector((state) => state?.brands);
 
   // console.log(brands);
 
   useEffect(() => {
-    brandsList();
+    brandsList("brands");
   }, []);
 
   return (
@@ -66,10 +66,23 @@ const BrandsCard = () => {
               disableSpacing
             >
               <Box sx={{ padding: "2rem" }}>
-                <Button size="small">
+                <Button
+                  size="small"
+                  onClick={() => {
+                    handleOpen();
+                    setInfo({
+                      id: a._id,
+                      name: a.name,
+                      image: a.image,
+                    });
+                  }}
+                >
                   <EditIcon />
                 </Button>
-                <Button size="small">
+                <Button
+                  size="small"
+                  onClick={() => removeBrand("brands", a._id)}
+                >
                   <DeleteOutlineIcon />
                 </Button>
               </Box>

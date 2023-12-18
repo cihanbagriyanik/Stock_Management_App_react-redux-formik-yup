@@ -4,18 +4,16 @@ import { fetchStart, fetchFail, getFirms } from "../features/firmsSlice";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import useAxios from "./useAxios";
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
-
 const useFirmsCall = () => {
   const dispatch = useDispatch();
 
   const { axiosWithToken } = useAxios();
 
-  const firmsList = async () => {
+  const firmsList = async (url) => {
     dispatch(fetchStart());
     try {
-      const { data } = await axiosWithToken.get(`${BASE_URL}firms/`);
-      dispatch(getFirms(data));
+      const { data } = await axiosWithToken(`${url}/`);
+      dispatch(getFirms({ data: data.data, url }));
     } catch (error) {
       dispatch(fetchFail());
     }

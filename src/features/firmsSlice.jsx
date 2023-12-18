@@ -26,10 +26,10 @@ const firmsSlice = createSlice({
       state.firms = payload?.data;
     },
 
-    createFirmSuccess: (state, { payload }) => {
-      state.loading = false;
-      state.firms = payload?.data?.firms;
-    },
+    // createFirmSuccess: (state, { payload }) => {
+    //   state.loading = false;
+    //   state.firms = payload?.data?.firms;
+    // },
   },
 });
 

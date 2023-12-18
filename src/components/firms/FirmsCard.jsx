@@ -14,8 +14,8 @@ import useFirmsCall from "../../hooks/useFirmsCall";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const FirmsCard = () => {
-  const { firmsList } = useFirmsCall();
+const FirmsCard = ({ handleOpen, info, setInfo }) => {
+  const { firmsList, removeFirm } = useFirmsCall();
   const { firms } = useSelector((state) => state.firms);
 
   // console.log(firms);
@@ -76,10 +76,22 @@ const FirmsCard = () => {
               disableSpacing
             >
               <Box>
-                <Button size="small">
+                <Button
+                  size="small"
+                  onClick={() => {
+                    handleOpen();
+                    setInfo({
+                      id: a._id,
+                      name: a.name,
+                      phone: a.phone,
+                      address: a.address,
+                      image: a.image,
+                    });
+                  }}
+                >
                   <EditIcon />
                 </Button>
-                <Button size="small">
+                <Button size="small" onClick={() => removeFirm("firms", a._id)}>
                   <DeleteOutlineIcon />
                 </Button>
               </Box>

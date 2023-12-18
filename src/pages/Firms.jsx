@@ -1,14 +1,24 @@
-import React from "react";
-
 import { Box, Button, Typography } from "@mui/material";
 import FirmsModal from "../components/firms/FirmsModal";
 import FirmsCard from "../components/firms/FirmsCard";
 import { useState } from "react";
 
+const initialState = {
+  name: "",
+  phone: "",
+  address: "",
+  image: "",
+};
+
 const Firms = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setInfo(initialState);
+  };
+
+  const [info, setInfo] = useState(initialState);
 
   return (
     <>
@@ -25,7 +35,12 @@ const Firms = () => {
         >
           New Firm
         </Button>
-        <FirmsModal open={open} handleClose={handleClose} />
+        <FirmsModal
+          open={open}
+          handleClose={handleClose}
+          info={info}
+          setInfo={setInfo}
+        />
       </Box>
 
       <Box
@@ -37,7 +52,7 @@ const Firms = () => {
           flexWrap: "wrap",
         }}
       >
-        <FirmsCard />
+        <FirmsCard handleOpen={handleOpen} info={info} setInfo={setInfo} />
       </Box>
     </>
   );

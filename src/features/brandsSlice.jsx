@@ -34,7 +34,11 @@ const brandsSlice = createSlice({
   },
 });
 
-export const { fetchStart, fetchFail, getBrands, createBrandSuccess } =
-  brandsSlice.actions;
+export const {
+  fetchStart,
+  fetchFail,
+  getBrands,
+  // createBrandSuccess,
+} = brandsSlice.actions;
 
 export default brandsSlice.reducer;

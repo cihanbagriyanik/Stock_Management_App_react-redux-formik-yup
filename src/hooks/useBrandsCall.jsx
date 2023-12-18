@@ -3,7 +3,7 @@ import {
   fetchStart,
   fetchFail,
   getBrands,
-  createBrandSuccess,
+  
 } from "../features/brandsSlice";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -24,24 +24,13 @@ const useBrandsCall = () => {
           Authorization: `Token ${token}`,
         },
       });
-      //   console.log(data);
       dispatch(getBrands(data));
     } catch (error) {
       dispatch(fetchFail());
     }
   };
 
-    // const register = async (userInfo) => {
-    //   dispatch(fetchStart());
-    //   try {
-    //     const { data } = await axios.post(`${BASE_URL}users/`, userInfo);
-    //     // console.log("register", data);
-    //     dispatch(registerSuccess(data));
-    //     navigate("/stock");
-    //   } catch (error) {
-    //     dispatch(fetchFail());
-    //   }
-    // };
+ 
 
   return { brandsList };
 };

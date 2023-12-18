@@ -1,51 +1,63 @@
-import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchStart,
-  fetchFail,
-  getFirms,
-  createFirmSuccess,
-} from "../features/firmsSlice";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchStart, fetchFail, getFirms } from "../features/firmsSlice";
+
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
+import useAxios from "./useAxios";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const useFirmsCall = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { token } = useSelector((state) => state.auth);
+
+  const { axiosWithToken } = useAxios();
 
   const firmsList = async () => {
     dispatch(fetchStart());
     try {
-      const { data } = await axios.get(`${BASE_URL}firms/`, {
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-      });
-      //   console.log(data);
+      const { data } = await axiosWithToken.get(`${BASE_URL}firms/`);
       dispatch(getFirms(data));
     } catch (error) {
       dispatch(fetchFail());
     }
   };
 
-  const register = async (firmsInfo) => {
+  const createFirm = async (url, body) => {
     dispatch(fetchStart());
     try {
-      const { data } = await axios.post(`${BASE_URL}firms/`, firmsInfo);
-      // console.log("register", data);
-      dispatch(createFirmSuccess(data));
+      await axiosWithToken.post(`${url}/`, body);
+      firmsList(url);
       toastSuccessNotify("New Firm created");
-      navigate("/firms");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify("New Firm could not created");
     }
   };
 
-  return { firmsList, register };
+  const updateFirm = async (url, body) => {
+    dispatch(fetchStart());
+    try {
+      await axiosWithToken.put(`${url}/${body.id}`, body);
+      firmsList(url);
+      toastSuccessNotify("New Firm updated");
+    } catch (error) {
+      dispatch(fetchFail());
+      toastSuccessNotify("New Firm could not updated");
+    }
+  };
+
+  const removeFirm = async (url, id) => {
+    dispatch(fetchStart());
+    try {
+      await axiosWithToken.delete(`${url}/${id}`);
+      firmsList(url);
+      toastSuccessNotify("Firm removed");
+    } catch (error) {
+      dispatch(fetchFail());
+      toastSuccessNotify("Firm could not remove");
+    }
+  };
+
+  return { firmsList, createFirm, updateFirm, removeFirm };
 };
 
 export default useFirmsCall;

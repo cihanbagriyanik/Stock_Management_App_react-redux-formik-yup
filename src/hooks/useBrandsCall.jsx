@@ -1,19 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchStart,
-  fetchFail,
-  getBrands,
-  
-} from "../features/brandsSlice";
+import { fetchStart, fetchFail, getBrands } from "../features/brandsSlice";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const useBrandsCall = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const { token } = useSelector((state) => state.auth);
 
   const brandsList = async () => {
@@ -29,8 +24,6 @@ const useBrandsCall = () => {
       dispatch(fetchFail());
     }
   };
-
- 
 
   return { brandsList };
 };

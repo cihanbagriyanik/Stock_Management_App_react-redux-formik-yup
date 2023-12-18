@@ -25,15 +25,9 @@ const firmsSlice = createSlice({
       state.error = false;
       state.firms = payload?.data;
     },
-
-    // createFirmSuccess: (state, { payload }) => {
-    //   state.loading = false;
-    //   state.firms = payload?.data?.firms;
-    // },
   },
 });
 
-export const { fetchStart, fetchFail, getFirms, createFirmSuccess } =
-  firmsSlice.actions;
+export const { fetchStart, fetchFail, getFirms } = firmsSlice.actions;
 
 export default firmsSlice.reducer;

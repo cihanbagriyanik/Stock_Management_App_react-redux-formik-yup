@@ -25,20 +25,9 @@ const brandsSlice = createSlice({
       state.error = false;
       state.brands = payload?.data;
     },
-
-    // createBrandSuccess: (state, { payload }) => {
-    //   state.loading = false;
-    //   state.firms = payload?.data?.username;
-    //   state.token = payload?.token;
-    // },
   },
 });
 
-export const {
-  fetchStart,
-  fetchFail,
-  getBrands,
-  // createBrandSuccess,
-} = brandsSlice.actions;
+export const { fetchStart, fetchFail, getBrands } = brandsSlice.actions;
 
 export default brandsSlice.reducer;

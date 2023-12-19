@@ -14,9 +14,11 @@ import useBrandsCall from "../../hooks/useBrandsCall";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
+import loadingGif from "../../assets/loading.gif";
+
 const BrandsCard = ({ handleOpen, setInfo }) => {
   const { brandsList, removeBrand } = useBrandsCall();
-  const { brands } = useSelector((state) => state?.brands);
+  const { brands, loading } = useSelector((state) => state?.brands);
 
   // console.log(brands);
 
@@ -26,70 +28,74 @@ const BrandsCard = ({ handleOpen, setInfo }) => {
 
   return (
     <>
-      {brands.map((a) => {
-        return (
-          <Card
-            sx={{
-              width: 390,
-              height: 390,
-              boxShadow: "3px 3px 15px gray",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-            }}
-            key={a._id}
-          >
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {a.name}
-              </Typography>
-            </CardContent>
-
-            <CardMedia
+      {loading ? (
+        <img src={loadingGif} alt="loading..." width={500} />
+      ) : (
+        brands.map((a) => {
+          return (
+            <Card
               sx={{
-                height: 140,
-                width: 170,
-                margin: "auto",
-                objectFit: "contain",
-              }}
-              image={a.image}
-              title="img"
-              component="img"
-            />
-
-            <CardActions
-              sx={{
+                width: 390,
+                height: 390,
+                boxShadow: "3px 3px 15px gray",
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                flexDirection: "column",
+                justifyContent: "space-between",
               }}
-              disableSpacing
+              key={a._id}
             >
-              <Box sx={{ padding: "2rem" }}>
-                <Button
-                  size="small"
-                  onClick={() => {
-                    handleOpen();
-                    setInfo({
-                      id: a._id,
-                      name: a.name,
-                      image: a.image,
-                    });
-                  }}
-                >
-                  <EditIcon />
-                </Button>
-                <Button
-                  size="small"
-                  onClick={() => removeBrand("brands", a._id)}
-                >
-                  <DeleteOutlineIcon />
-                </Button>
-              </Box>
-            </CardActions>
-          </Card>
-        );
-      })}
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {a.name}
+                </Typography>
+              </CardContent>
+
+              <CardMedia
+                sx={{
+                  height: 140,
+                  width: 170,
+                  margin: "auto",
+                  objectFit: "contain",
+                }}
+                image={a.image}
+                title="img"
+                component="img"
+              />
+
+              <CardActions
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                disableSpacing
+              >
+                <Box sx={{ padding: "2rem" }}>
+                  <Button
+                    size="small"
+                    onClick={() => {
+                      handleOpen();
+                      setInfo({
+                        id: a._id,
+                        name: a.name,
+                        image: a.image,
+                      });
+                    }}
+                  >
+                    <EditIcon />
+                  </Button>
+                  <Button
+                    size="small"
+                    onClick={() => removeBrand("brands", a._id)}
+                  >
+                    <DeleteOutlineIcon />
+                  </Button>
+                </Box>
+              </CardActions>
+            </Card>
+          );
+        })
+      )}
     </>
   );
 };

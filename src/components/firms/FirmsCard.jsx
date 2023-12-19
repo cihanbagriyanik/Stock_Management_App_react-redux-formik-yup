@@ -14,9 +14,11 @@ import useFirmsCall from "../../hooks/useFirmsCall";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
+import loadingGif from "../../assets/loading.gif";
+
 const FirmsCard = ({ handleOpen, setInfo }) => {
   const { firmsList, removeFirm } = useFirmsCall();
-  const { firms } = useSelector((state) => state.firms);
+  const { firms, loading } = useSelector((state) => state.firms);
 
   // console.log(firms);
 
@@ -26,79 +28,86 @@ const FirmsCard = ({ handleOpen, setInfo }) => {
 
   return (
     <>
-      {firms.map((a) => {
-        return (
-          <Card
-            sx={{
-              width: 390,
-              height: 390,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              padding: "0.5rem",
-              boxShadow: "3px 3px 15px gray",
-            }}
-            key={a._id}
-          >
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {a.name}
-              </Typography>
-              <Typography variant="body1" color="text.secondary">
-                {a.address}
-              </Typography>
-            </CardContent>
-
-            <CardMedia
+      {loading ? (
+        <img src={loadingGif} alt="loading..." width={500} />
+      ) : (
+        firms.map((a) => {
+          return (
+            <Card
               sx={{
-                height: 140,
-                width: 170,
-                margin: "auto",
-                objectFit: "contain",
-              }}
-              image={a.image}
-              title="image"
-              component="img"
-            />
-
-            <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                Phone: {a.phone}
-              </Typography>
-            </CardContent>
-
-            <CardActions
-              sx={{
+                width: 390,
+                height: 390,
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                padding: "0.5rem",
+                boxShadow: "3px 3px 15px gray",
               }}
-              disableSpacing
+              key={a._id}
             >
-              <Box>
-                <Button
-                  size="small"
-                  onClick={() => {
-                    handleOpen();
-                    setInfo({
-                      id: a._id,
-                      name: a.name,
-                      phone: a.phone,
-                      address: a.address,
-                      image: a.image,
-                    });
-                  }}
-                >
-                  <EditIcon />
-                </Button>
-                <Button size="small" onClick={() => removeFirm("firms", a._id)}>
-                  <DeleteOutlineIcon />
-                </Button>
-              </Box>
-            </CardActions>
-          </Card>
-        );
-      })}
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {a.name}
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  {a.address}
+                </Typography>
+              </CardContent>
+
+              <CardMedia
+                sx={{
+                  height: 140,
+                  width: 170,
+                  margin: "auto",
+                  objectFit: "contain",
+                }}
+                image={a.image}
+                title="image"
+                component="img"
+              />
+
+              <CardContent>
+                <Typography variant="body2" color="text.secondary">
+                  Phone: {a.phone}
+                </Typography>
+              </CardContent>
+
+              <CardActions
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                disableSpacing
+              >
+                <Box>
+                  <Button
+                    size="small"
+                    onClick={() => {
+                      handleOpen();
+                      setInfo({
+                        id: a._id,
+                        name: a.name,
+                        phone: a.phone,
+                        address: a.address,
+                        image: a.image,
+                      });
+                    }}
+                  >
+                    <EditIcon />
+                  </Button>
+                  <Button
+                    size="small"
+                    onClick={() => removeFirm("firms", a._id)}
+                  >
+                    <DeleteOutlineIcon />
+                  </Button>
+                </Box>
+              </CardActions>
+            </Card>
+          );
+        })
+      )}
     </>
   );
 };

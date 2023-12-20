@@ -12,7 +12,6 @@ const useProductsCall = () => {
   const productsList = async () => {
     dispatch(fetchStart());
     try {
-      // const [a, b, c] = [1, 2, 3];
       const [products, brands, categories] = await Promise.all([
         axiosWithToken(`products`),
         axiosWithToken(`brands`),

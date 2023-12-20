@@ -12,13 +12,14 @@ import { btnStyle } from "../../styles/globalStyle";
 
 export default function ProductTable() {
   const { products } = useSelector((state) => state.products);
+
   const { removeProduct } = useStockCall();
+
   function getRowId(row) {
     // console.log(row);
-    return row._id
-    // const row_id = String(row._id);
-    // return row._id.slice(row_id.length - 4);
+    return row._id;
   }
+
   const columns = [
     {
       field: "_id",
@@ -28,7 +29,7 @@ export default function ProductTable() {
       headerAlign: "center",
       align: "center",
       flex: 1,
-      valueGetter: (params) => params.id,
+      valueGetter: (params) => params.id.slice(params.id.length - 4),
     },
     {
       field: "categoryId",
@@ -83,6 +84,7 @@ export default function ProductTable() {
       ),
     },
   ];
+
   return (
     <Box sx={{ width: "100%", mt: 5 }}>
       <DataGrid

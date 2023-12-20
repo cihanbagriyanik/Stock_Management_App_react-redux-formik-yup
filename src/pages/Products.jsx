@@ -1,11 +1,13 @@
 import * as React from "react";
-import { Box, Button, Container, Typography } from "@mui/material";
+
+import { Box, Typography, Button } from "@mui/material";
 
 import { useEffect } from "react";
-import useProductsCall from "../hooks/useProductsCall";
+import { useState } from "react";
 import ProductModal from "../components/products/ProductsModal";
 import ProductTable from "../components/products/ProductsTable";
-import { useState } from "react";
+
+import useProductsCall from "../hooks/useProductsCall";
 
 const initialState = {
   categoryId: "",
@@ -19,6 +21,7 @@ const Products = () => {
   const [info, setInfo] = useState(initialState);
 
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);

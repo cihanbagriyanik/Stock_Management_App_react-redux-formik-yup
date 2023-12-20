@@ -3,6 +3,7 @@ import authReducer from "../features/authSlice";
 import firmsReducer from "../features/firmsSlice";
 import brandsReducer from "../features/brandsSlice";
 import productsReducer from "../features/productsSlice";
+import salesReducer from "../features/salesSlice";
 
 // import authMidReducer from "../features/authSliceMiddleware"; //!middleware ile olan kullanım
 import {
@@ -31,6 +32,7 @@ const store = configureStore({
     firms: firmsReducer,
     brands: brandsReducer,
     products: productsReducer,
+    sales: salesReducer,
   },
 
   middleware: (getDefaultMiddleware) =>

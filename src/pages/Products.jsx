@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 
 import { useEffect } from "react";
 import useProductsCall from "../hooks/useProductsCall";
@@ -31,7 +31,7 @@ const Products = () => {
   // console.log(products);
 
   return (
-    <Container maxWidth={"xl"}>
+    <Box maxWidth={"xl"}>
       <Typography variant="h4" component="h1" color="error">
         Products
       </Typography>
@@ -48,7 +48,7 @@ const Products = () => {
       />
 
       <ProductTable />
-    </Container>
+    </Box>
   );
 };
 

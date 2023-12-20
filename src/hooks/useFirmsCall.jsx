@@ -39,7 +39,7 @@ const useFirmsCall = () => {
       toastSuccessNotify("New Firm updated");
     } catch (error) {
       dispatch(fetchFail());
-      toastSuccessNotify("New Firm could not updated");
+      toastErrorNotify("New Firm could not updated");
     }
   };
 
@@ -51,7 +51,7 @@ const useFirmsCall = () => {
       toastSuccessNotify("Firm removed");
     } catch (error) {
       dispatch(fetchFail());
-      toastSuccessNotify("Firm could not remove");
+      toastErrorNotify("Firm could not remove");
     }
   };
 

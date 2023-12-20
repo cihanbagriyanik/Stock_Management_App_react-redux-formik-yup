@@ -39,7 +39,7 @@ const useBrandsCall = () => {
       toastSuccessNotify("New Brand updated");
     } catch (error) {
       dispatch(fetchFail());
-      toastSuccessNotify("New Brand could not updated");
+      toastErrorNotify("New Brand could not updated");
     }
   };
 
@@ -51,7 +51,7 @@ const useBrandsCall = () => {
       toastSuccessNotify("Brand removed");
     } catch (error) {
       dispatch(fetchFail());
-      toastSuccessNotify("Brand could not remove");
+      toastErrorNotify("Brand could not remove");
     }
   };
 

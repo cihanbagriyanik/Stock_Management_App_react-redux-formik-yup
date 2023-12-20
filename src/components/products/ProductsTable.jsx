@@ -15,17 +15,20 @@ export default function ProductTable() {
   const { removeProduct } = useStockCall();
   function getRowId(row) {
     // console.log(row);
-    return row._id;
+    return row._id
+    // const row_id = String(row._id);
+    // return row._id.slice(row_id.length - 4);
   }
   const columns = [
     {
       field: "_id",
-      headerName: "#",
+      headerName: "ID",
       minWidth: 40,
       maxWidth: 70,
       headerAlign: "center",
       align: "center",
       flex: 1,
+      valueGetter: (params) => params.id,
     },
     {
       field: "categoryId",

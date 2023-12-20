@@ -1,9 +1,5 @@
 import { useDispatch } from "react-redux";
-import {
-  fetchStart,
-  fetchFail,
-  getProducts,
-} from "../features/productsSlice";
+import { fetchStart, fetchFail, getProducts } from "../features/productsSlice";
 
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import useAxios from "./useAxios";
@@ -12,8 +8,6 @@ const useProductsCall = () => {
   const dispatch = useDispatch();
 
   const { axiosWithToken } = useAxios();
-
-
 
   const productsList = async () => {
     dispatch(fetchStart());
@@ -57,7 +51,7 @@ const useProductsCall = () => {
       toastSuccessNotify("New Product updated");
     } catch (error) {
       dispatch(fetchFail());
-      toastSuccessNotify("New Product could not updated");
+      toastErrorNotify("New Product could not updated");
     }
   };
 
@@ -69,7 +63,7 @@ const useProductsCall = () => {
       toastSuccessNotify("Product removed");
     } catch (error) {
       dispatch(fetchFail());
-      toastSuccessNotify("Product could not remove");
+      toastErrorNotify("Product could not remove");
     }
   };
 

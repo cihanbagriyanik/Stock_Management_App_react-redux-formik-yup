@@ -5,6 +5,8 @@ const productsSlice = createSlice({
 
   initialState: {
     products: [],
+    categories: [],
+    brands: [],
     loading: false,
     error: false,
   },
@@ -22,8 +24,9 @@ const productsSlice = createSlice({
 
     getProducts: (state, { payload }) => {
       state.loading = false;
-      state.error = false;
-      state.products = payload?.data;
+      state.products = payload[0];
+      state.brands = payload[1];
+      state.categories = payload[2];
     },
   },
 });

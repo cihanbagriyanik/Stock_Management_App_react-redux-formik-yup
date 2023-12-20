@@ -1,5 +1,9 @@
 import { useDispatch } from "react-redux";
-import { fetchStart, fetchFail, getProducts } from "../features/productsSlice";
+import {
+  fetchStart,
+  fetchFail,
+  getProducts,
+} from "../features/productsSlice";
 
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import useAxios from "./useAxios";
@@ -9,12 +13,25 @@ const useProductsCall = () => {
 
   const { axiosWithToken } = useAxios();
 
-  const productsList = async (url) => {
+
+
+  const productsList = async () => {
     dispatch(fetchStart());
     try {
-      const { data } = await axiosWithToken(`${url}/`);
-      dispatch(getProducts({ data: data.data }));
-    //   console.log(data);
+      // const [a, b, c] = [1, 2, 3];
+      const [products, brands, categories] = await Promise.all([
+        axiosWithToken(`products`),
+        axiosWithToken(`brands`),
+        axiosWithToken(`categories`),
+      ]);
+      dispatch(
+        getProducts([
+          products?.data?.data,
+          brands?.data?.data,
+          categories?.data?.data,
+        ])
+      );
+      // console.log(products, brands, categories);
     } catch (error) {
       dispatch(fetchFail());
     }
@@ -56,7 +73,12 @@ const useProductsCall = () => {
     }
   };
 
-  return { productsList, createProduct, updateProduct, removeProduct };
+  return {
+    createProduct,
+    updateProduct,
+    removeProduct,
+    productsList,
+  };
 };
 
 export default useProductsCall;

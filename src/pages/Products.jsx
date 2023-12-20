@@ -1,40 +1,54 @@
 import * as React from "react";
-import { Box, Typography } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 
 import { useEffect } from "react";
 import useProductsCall from "../hooks/useProductsCall";
-import { useSelector } from "react-redux";
+import ProductModal from "../components/products/ProductsModal";
+import ProductTable from "../components/products/ProductsTable";
+import { useState } from "react";
 
-// import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-// import { useDemoData } from "@mui/x-data-grid-generator";
-
-// const VISIBLE_FIELDS = ["name", "rating", "country", "dateCreated", "isAdmin"];
+const initialState = {
+  categoryId: "",
+  brandId: "",
+  name: "",
+};
 
 const Products = () => {
-  // const { data } = useDemoData({
-  //   dataSet: "Employee",
-  //   visibleFields: VISIBLE_FIELDS,
-  //   rowLength: 100,
-  // });
-
   const { productsList } = useProductsCall();
-  const { products } = useSelector((state) => state?.products);
+
+  const [info, setInfo] = useState(initialState);
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    setInfo(initialState);
+  };
 
   useEffect(() => {
-    productsList("products");
+    productsList();
   }, []);
-  console.log(products);
+  // console.log(products);
 
   return (
-    <Box>
+    <Container maxWidth={"xl"}>
       <Typography variant="h4" component="h1" color="error">
         Products
       </Typography>
-    </Box>
 
-    // <div style={{ height: 400, width: "100%" }}>
-    //   {/* <DataGrid {...data} slots={{ toolbar: GridToolbar }} /> */}
-    // </div>
+      <Button variant="contained" sx={{ mt: 3 }} onClick={handleOpen}>
+        New Products
+      </Button>
+
+      <ProductModal
+        open={open}
+        handleClose={handleClose}
+        info={info}
+        setInfo={setInfo}
+      />
+
+      <ProductTable />
+    </Container>
   );
 };
 

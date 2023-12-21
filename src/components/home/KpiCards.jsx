@@ -20,8 +20,8 @@ export default function KpiCards() {
     {
       title: "Cash",
       metric: `€ ${cash}`,
-      value: `${((cash / 250000) * 100).toFixed(2)}`,
-      target: "€ 250,000",
+      value: `${((cash / 500000) * 100).toFixed(2)}`,
+      target: "€ 500,000",
       color: "fuchsia",
     },
     {

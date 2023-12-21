@@ -5,6 +5,7 @@ const AuthHeader = () => {
   return (
     <Grid item xs={12} mb={3}>
       <Typography variant="h3" color="primary" align="center">
+        <span style={{color:"#66B5BC"}}>{"< Cihan / >"}</span> <br />
         Stock Management App
       </Typography>
     </Grid>

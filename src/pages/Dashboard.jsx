@@ -60,9 +60,14 @@ function Dashboard(props) {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: "1" }}
+            sx={{ flexGrow: "1", fontWeight: "bold" }}
           >
-            Stock Management App
+            <span
+            // style={{fontWeight:"bold"}}
+            >
+              {"< Cihan / >"}
+            </span>{" "}
+            Stock App
           </Typography>
           <Box>
             <Button

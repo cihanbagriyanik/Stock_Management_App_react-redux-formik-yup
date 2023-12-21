@@ -51,6 +51,7 @@ const MenuListItems = () => {
   //   console.log(pathname);
 
   const iconStyle = {
+    cursor: "pointer",
     color: "secondary.main",
     borderRadius: "1rem",
 

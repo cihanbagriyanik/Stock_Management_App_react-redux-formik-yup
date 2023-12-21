@@ -11,9 +11,10 @@ import Dashboard from "../pages/Dashboard";
 import Home from "../pages/Home";
 import Purchases from "../pages/Purchases";
 import Sales from "../pages/Sales";
+import Products from "../pages/Products";
+import Categories from "../pages/Categories";
 import Firms from "../pages/Firms";
 import Brands from "../pages/Brands";
-import Products from "../pages/Products";
 
 const AppRouter = () => {
   return (
@@ -30,9 +31,10 @@ const AppRouter = () => {
             <Route index element={<Home />} />
             <Route path="purchases" element={<Purchases />} />
             <Route path="sales" element={<Sales />} />
+            <Route path="products" element={<Products />} />
+            <Route path="categories" element={<Categories />} />
             <Route path="firms" element={<Firms />} />
             <Route path="brands" element={<Brands />} />
-            <Route path="products" element={<Products />} />
           </Route>
         </Route>
       </Routes>

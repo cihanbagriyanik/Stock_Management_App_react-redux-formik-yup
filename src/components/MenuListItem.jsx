@@ -7,6 +7,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { Box } from "@mui/material";
 import ListItemText from "@mui/material/ListItemText";
+import CategoryIcon from "@mui/icons-material/Category";
 
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -29,6 +30,16 @@ const links = [
     url: "/stock/sales/",
   },
   {
+    title: "Products",
+    icon: icon("ic_cart"),
+    url: "/stock/products/",
+  },
+  {
+    title: "Categories",
+    icon: icon("category_list"),
+    url: "/stock/categories/",
+  },
+  {
     title: "Firms",
     icon: icon("firms"),
     url: "/stock/firms/",
@@ -37,11 +48,6 @@ const links = [
     title: "Brands",
     icon: icon("brand"),
     url: "/stock/brands/",
-  },
-  {
-    title: "Products",
-    icon: icon("ic_cart"),
-    url: "/stock/products/",
   },
 ];
 

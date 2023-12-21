@@ -7,13 +7,13 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
 import { useSelector } from "react-redux";
 
-import useStockCall from "../../hooks/useProductsCall";
+import useProductsCall from "../../hooks/useProductsCall";
 import { btnStyle } from "../../styles/globalStyle";
 
 export default function ProductTable() {
   const { products } = useSelector((state) => state.products);
 
-  const { removeProduct } = useStockCall();
+  const { removeProduct } = useProductsCall();
 
   function getRowId(row) {
     // console.log(row);

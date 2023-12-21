@@ -97,6 +97,7 @@ export default function ProductTable() {
             },
           },
         }}
+        autoHeight
         getRowId={getRowId}
         pageSizeOptions={[5, 10, 15, 25, 50]}
         slots={{ toolbar: GridToolbar }}

@@ -39,7 +39,7 @@ const useProductsCall = () => {
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "New Product could not created"
+        error?.response?.data?.message || "New Product could not create"
       );
     }
   };
@@ -49,11 +49,11 @@ const useProductsCall = () => {
     try {
       await axiosWithToken.put(`${url}/${body.id}`, body);
       productsList(url);
-      toastSuccessNotify("New Product updated");
+      toastSuccessNotify("Product updated");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "New Product could not updated"
+        error?.response?.data?.message || "Product could not update"
       );
     }
   };

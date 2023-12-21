@@ -28,7 +28,7 @@ const useBrandsCall = () => {
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "New Brand could not created"
+        error?.response?.data?.message || "New Brand could not create"
       );
     }
   };
@@ -38,11 +38,11 @@ const useBrandsCall = () => {
     try {
       await axiosWithToken.put(`${url}/${body.id}`, body);
       brandsList(url);
-      toastSuccessNotify("New Brand updated");
+      toastSuccessNotify("Brand updated");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "New Brand could not updated"
+        error?.response?.data?.message || "Brand could not update"
       );
     }
   };

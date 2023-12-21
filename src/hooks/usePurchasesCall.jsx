@@ -1,5 +1,9 @@
 import { useDispatch } from "react-redux";
-import { fetchStart, fetchFail, getPurchases } from "../features/authSlice";
+import {
+  fetchStart,
+  fetchFail,
+  getPurchases,
+} from "../features/purchasesSlice";
 
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import useAxios from "./useAxios";
@@ -12,21 +16,20 @@ const usePurchasesCall = () => {
   const purchasesList = async () => {
     dispatch(fetchStart());
     try {
-      const [purchases, brands, sales, products] = await Promise.all([
+      const [purchases, brands, firms, products] = await Promise.all([
         axiosWithToken("purchases/"),
         axiosWithToken(`brands/`),
-        axiosWithToken(`sales/`),
+        axiosWithToken(`firms/`),
         axiosWithToken(`products/`),
       ]);
       dispatch(
         getPurchases([
           purchases?.data?.data,
           brands?.data?.data,
-          sales?.data?.data,
+          firms?.data?.data,
           products?.data?.data,
         ])
       );
-      
     } catch (error) {
       dispatch(fetchFail());
     }
@@ -51,11 +54,11 @@ const usePurchasesCall = () => {
     try {
       await axiosWithToken.put(`${url}/${body._id}`, body);
       purchasesList(url);
-      toastSuccessNotify("New Purchases updated");
+      toastSuccessNotify("Purchase updated");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "New Purchases could not updated"
+        error?.response?.data?.message || "Purchase could not update"
       );
     }
   };
@@ -65,11 +68,11 @@ const usePurchasesCall = () => {
     try {
       await axiosWithToken.delete(`${url}/${id}`);
       purchasesList(url);
-      toastSuccessNotify("Purchases removed");
+      toastSuccessNotify("Purchase removed");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "Purchases could not remove"
+        error?.response?.data?.message || "Purchase could not remove"
       );
     }
   };

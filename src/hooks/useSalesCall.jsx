@@ -45,11 +45,11 @@ const useSalesCall = () => {
     try {
       await axiosWithToken.put(`${url}/${body._id}`, body);
       salesList(url);
-      toastSuccessNotify("New Sales updated");
+      toastSuccessNotify("Sale updated");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "New Sales could not updated"
+        error?.response?.data?.message || "Sale could not update"
       );
     }
   };
@@ -59,11 +59,11 @@ const useSalesCall = () => {
     try {
       await axiosWithToken.delete(`${url}/${id}`);
       salesList(url);
-      toastSuccessNotify("Sales removed");
+      toastSuccessNotify("Sale removed");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "Sales could not remove"
+        error?.response?.data?.message || "Sale could not remove"
       );
     }
   };

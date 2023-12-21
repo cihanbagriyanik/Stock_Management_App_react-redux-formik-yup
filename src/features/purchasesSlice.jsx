@@ -8,7 +8,7 @@ const purchasesSlice = createSlice({
     error: false,
     purchases: [],
     brands: [],
-    sales: [],
+    firms: [],
     products: [],
   },
 
@@ -27,7 +27,7 @@ const purchasesSlice = createSlice({
       state.loading = false;
       state.purchases = payload[0];
       state.brands = payload[1];
-      state.sales = payload[2];
+      state.firms = payload[2];
       state.products = payload[3];
     },
   },

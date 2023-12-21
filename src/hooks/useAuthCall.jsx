@@ -37,14 +37,14 @@ const useAuthCall = () => {
     try {
       const { data } = await axios.post(`${BASE_URL}auth/login/`, userInfo);
       dispatch(loginSuccess(data));
-      toastSuccessNotify("Login performed");
+      toastSuccessNotify("Login successfully");
       navigate("/stock");
       // console.log(data);
     } catch (error) {
       dispatch(fetchFail());
       console.log(error);
       toastErrorNotify(
-        error?.response?.data?.message || "Login can not be performed"
+        error?.response?.data?.message || "Login is not successfully"
       );
     }
   };
@@ -59,12 +59,12 @@ const useAuthCall = () => {
       });
 
       dispatch(logOutSuccess());
-      toastSuccessNotify("Log Out is successfully");
+      toastSuccessNotify("Logout is successfully");
       navigate("/");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "Log Out is NOT successfully"
+        error?.response?.data?.message || "Logout is not successfully"
       );
     }
   };

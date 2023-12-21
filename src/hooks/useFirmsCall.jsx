@@ -28,7 +28,7 @@ const useFirmsCall = () => {
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "New Firm could not created"
+        error?.response?.data?.message || "New Firm could not create"
       );
     }
   };
@@ -38,11 +38,11 @@ const useFirmsCall = () => {
     try {
       await axiosWithToken.put(`${url}/${body.id}`, body);
       firmsList(url);
-      toastSuccessNotify("New Firm updated");
+      toastSuccessNotify("Firm updated");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "New Firm could not updated"
+        error?.response?.data?.message || "Firm could not update"
       );
     }
   };

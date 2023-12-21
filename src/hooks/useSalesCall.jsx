@@ -34,7 +34,9 @@ const useSalesCall = () => {
       toastSuccessNotify("New Sales created");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("New Sales could not created");
+      toastErrorNotify(
+        error?.response?.data?.message || "New Sales could not created"
+      );
     }
   };
 
@@ -46,7 +48,9 @@ const useSalesCall = () => {
       toastSuccessNotify("New Sales updated");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("New Sales could not updated");
+      toastErrorNotify(
+        error?.response?.data?.message || "New Sales could not updated"
+      );
     }
   };
 
@@ -58,7 +62,9 @@ const useSalesCall = () => {
       toastSuccessNotify("Sales removed");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("Sales could not remove");
+      toastErrorNotify(
+        error?.response?.data?.message || "Sales could not remove"
+      );
     }
   };
 

@@ -38,7 +38,9 @@ const useProductsCall = () => {
       toastSuccessNotify("New Product created");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("New Product could not created");
+      toastErrorNotify(
+        error?.response?.data?.message || "New Product could not created"
+      );
     }
   };
 
@@ -50,7 +52,9 @@ const useProductsCall = () => {
       toastSuccessNotify("New Product updated");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("New Product could not updated");
+      toastErrorNotify(
+        error?.response?.data?.message || "New Product could not updated"
+      );
     }
   };
 
@@ -62,7 +66,9 @@ const useProductsCall = () => {
       toastSuccessNotify("Product removed");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("Product could not remove");
+      toastErrorNotify(
+        error?.response?.data?.message || "Product could not remove"
+      );
     }
   };
 

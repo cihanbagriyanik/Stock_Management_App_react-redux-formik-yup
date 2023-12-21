@@ -27,7 +27,9 @@ const useAuthCall = () => {
       navigate("/stock");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("Register is not successfully");
+      toastErrorNotify(
+        error?.response?.data?.message || "Register is not successfully"
+      );
     }
   };
   const login = async (userInfo) => {
@@ -41,7 +43,9 @@ const useAuthCall = () => {
     } catch (error) {
       dispatch(fetchFail());
       console.log(error);
-      toastErrorNotify("Login can not be performed");
+      toastErrorNotify(
+        error?.response?.data?.message || "Login can not be performed"
+      );
     }
   };
 
@@ -59,7 +63,9 @@ const useAuthCall = () => {
       navigate("/");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("Log Out is NOT successfully");
+      toastErrorNotify(
+        error?.response?.data?.message || "Log Out is NOT successfully"
+      );
     }
   };
 

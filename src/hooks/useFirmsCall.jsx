@@ -27,7 +27,9 @@ const useFirmsCall = () => {
       toastSuccessNotify("New Firm created");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("New Firm could not created");
+      toastErrorNotify(
+        error?.response?.data?.message || "New Firm could not created"
+      );
     }
   };
 
@@ -39,7 +41,9 @@ const useFirmsCall = () => {
       toastSuccessNotify("New Firm updated");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("New Firm could not updated");
+      toastErrorNotify(
+        error?.response?.data?.message || "New Firm could not updated"
+      );
     }
   };
 
@@ -51,7 +55,9 @@ const useFirmsCall = () => {
       toastSuccessNotify("Firm removed");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("Firm could not remove");
+      toastErrorNotify(
+        error?.response?.data?.message || "Firm could not remove"
+      );
     }
   };
 

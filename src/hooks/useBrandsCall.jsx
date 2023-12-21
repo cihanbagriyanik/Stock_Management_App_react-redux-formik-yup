@@ -27,7 +27,9 @@ const useBrandsCall = () => {
       toastSuccessNotify("New Brand created");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("New Brand could not created");
+      toastErrorNotify(
+        error?.response?.data?.message || "New Brand could not created"
+      );
     }
   };
 
@@ -39,7 +41,9 @@ const useBrandsCall = () => {
       toastSuccessNotify("New Brand updated");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("New Brand could not updated");
+      toastErrorNotify(
+        error?.response?.data?.message || "New Brand could not updated"
+      );
     }
   };
 
@@ -51,7 +55,9 @@ const useBrandsCall = () => {
       toastSuccessNotify("Brand removed");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("Brand could not remove");
+      toastErrorNotify(
+        error?.response?.data?.message || "Brand could not remove"
+      );
     }
   };
 

@@ -15,21 +15,21 @@ export default function KpiCards() {
       metric: `€ ${totalSales}`,
       value: `${((totalSales / 2000000) * 100).toFixed(2)}`,
       target: "€ 2,000,000",
-      color: "indigo",
+      color: "lime",
     },
     {
       title: "Cash",
       metric: `€ ${cash}`,
       value: `${((cash / 500000) * 100).toFixed(2)}`,
       target: "€ 500,000",
-      color: "fuchsia",
+      color: "amber",
     },
     {
       title: "Purchases",
       metric: `€ ${totalPurchases}`,
       value: `${((totalPurchases / 1000000) * 100).toFixed(2)}`,
       target: "1,000,000",
-      color: "amber",
+      color: "rose",
     },
   ];
 

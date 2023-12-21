@@ -1,15 +1,10 @@
 import React from "react";
 import { flexColumn, modalStyle } from "../../styles/globalStyle";
-import { Box, Button, MenuItem, Modal, TextField } from "@mui/material";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import InputLabel from "@mui/material/InputLabel";
-import { useSelector } from "react-redux";
+import { Box, Button, Modal, TextField } from "@mui/material";
 
 import useCategoriesCall from "../../hooks/useCategoriesCall";
 
 const CategorieModal = ({ open, handleClose, info, setInfo }) => {
-  // const { categories, brands } = useSelector((state) => state.categories);
   const { createCategories, updateCategories } = useCategoriesCall();
 
   const handleChange = (e) => {
@@ -28,7 +23,7 @@ const CategorieModal = ({ open, handleClose, info, setInfo }) => {
 
     handleClose();
   };
-  console.log(info);
+  console.log(info?.nameId);
   return (
     <Box>
       <Modal
@@ -47,6 +42,7 @@ const CategorieModal = ({ open, handleClose, info, setInfo }) => {
               variant="outlined"
               value={info?.name}
               onChange={handleChange}
+              required
             />
             <Button type="submit" variant="contained">
               {info?._id ? "Update Categorie" : "Submit Categorie"}

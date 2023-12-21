@@ -34,7 +34,7 @@ export default function KpiCards() {
   ];
 
   return (
-    <Grid className=" flex justify-center items-center flex-wrap gap-6 mt-3">
+    <Grid className=" flex justify-center items-center flex-wrap gap-6 mt-7">
       {categories.map((item) => (
         <Card
           key={item.title}

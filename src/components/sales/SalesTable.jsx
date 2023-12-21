@@ -100,7 +100,7 @@ const SaleTable = ({ setOpen, setInfo }) => {
     },
   ];
   return (
-    <Box sx={{ width: "100%", marginTop: "1rem" }}>
+    <Box sx={{ width: "100%" }} mt={5}>
       <DataGrid
         rows={sales}
         columns={columns}

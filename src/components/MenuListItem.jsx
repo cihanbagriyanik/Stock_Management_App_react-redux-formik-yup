@@ -61,6 +61,7 @@ const MenuListItems = () => {
   };
 
   const selectedStyle = {
+    cursor: "pointer",
     backgroundColor: "secondary.second",
     borderRadius: "1rem",
     "&:hover": {

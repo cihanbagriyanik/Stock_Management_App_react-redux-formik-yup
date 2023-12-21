@@ -11,7 +11,7 @@ import { btnStyle } from "../../styles/globalStyle";
 const PurchasesTable = ({ setOpen, setInfo }) => {
   const { removePurchases } = useStockCall();
   const { purchases } = useSelector((state) => state.purchases);
-  console.log(purchases);
+  // console.log(purchases);
 
   function getRowId(row) {
     return row._id;

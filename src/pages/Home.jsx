@@ -2,7 +2,19 @@ import React from "react";
 
 import { Box, Typography } from "@mui/material";
 
+import { useEffect } from "react";
+import useStockCall from "../hooks/useHomeCall";
+
+import KpiCards from "../components/home/KpiCards";
+import Charts from "../components/home/Charts";
+
 const Home = () => {
+  const { getPurSales } = useStockCall();
+
+  useEffect(() => {
+    getPurSales();
+  }, []);
+
   return (
     <Box>
       <Typography
@@ -13,6 +25,10 @@ const Home = () => {
       >
         Dashboard
       </Typography>
+
+      <KpiCards />
+
+      <Charts />
     </Box>
   );
 };

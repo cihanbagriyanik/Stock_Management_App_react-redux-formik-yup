@@ -17,7 +17,7 @@ export default function PurchasesModal({ open, handleClose, info, setInfo }) {
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
   };
-  console.log(info);
+  // console.log(info);
   const handleSubmit = (e) => {
     e.preventDefault();
 

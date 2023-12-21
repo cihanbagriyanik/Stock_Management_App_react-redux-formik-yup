@@ -19,11 +19,13 @@ const CategorieModal = ({ open, handleClose, info, setInfo }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (info._id) {
       updateCategories("categories", info);
     } else {
       createCategories("categories", info);
     }
+
     handleClose();
   };
   console.log(info);

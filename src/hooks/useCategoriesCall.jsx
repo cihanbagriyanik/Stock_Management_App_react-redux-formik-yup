@@ -17,22 +17,16 @@ const useCategoriesCall = () => {
     dispatch(fetchStart());
     try {
       const [
-        // products,
-        // brands,
         categories,
       ] = await Promise.all([
-        // axiosWithToken(`products`),
-        // axiosWithToken(`brands`),
         axiosWithToken(`categories`),
       ]);
       dispatch(
         getCategories([
-          //   products?.data?.data,
-          //   brands?.data?.data,
           categories?.data?.data,
         ])
       );
-      // console.log(products, brands, categories);
+      // console.log(categories);
     } catch (error) {
       dispatch(fetchFail());
     }
@@ -43,11 +37,11 @@ const useCategoriesCall = () => {
     try {
       await axiosWithToken.post(`${url}/`, body);
       categoriesList(url);
-      toastSuccessNotify("New Categories created");
+      toastSuccessNotify("New Categorie created");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "New Categories could not create"
+        error?.response?.data?.message || "New Categorie could not create"
       );
     }
   };
@@ -57,11 +51,11 @@ const useCategoriesCall = () => {
     try {
       await axiosWithToken.put(`${url}/${body.id}`, body);
       categoriesList(url);
-      toastSuccessNotify("Categories updated");
+      toastSuccessNotify("Categorie updated");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "Categories could not update"
+        error?.response?.data?.message || "Categorie could not update"
       );
     }
   };
@@ -71,11 +65,11 @@ const useCategoriesCall = () => {
     try {
       await axiosWithToken.delete(`${url}/${id}`);
       categoriesList(url);
-      toastSuccessNotify("Categories removed");
+      toastSuccessNotify("Categorie removed");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(
-        error?.response?.data?.message || "Categories could not remove"
+        error?.response?.data?.message || "Categorie could not remove"
       );
     }
   };

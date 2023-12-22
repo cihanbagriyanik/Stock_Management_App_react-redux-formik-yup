@@ -57,7 +57,7 @@ export default function CategorieTable({ setOpen, info, setInfo }) {
       minWidth: 90,
       headerAlign: "center",
       align: "center",
-      renderCell: ({ row: { name, params } }) => {
+      renderCell: ({ row: { name, _id } }) => {
         return [
           <GridActionsCellItem
             key={"edit"}
@@ -65,7 +65,7 @@ export default function CategorieTable({ setOpen, info, setInfo }) {
             label="Edit"
             onClick={() => {
               setOpen(true);
-              setInfo({ name });
+              setInfo({ name, _id });
             }}
             sx={btnStyle}
           />,
@@ -73,7 +73,7 @@ export default function CategorieTable({ setOpen, info, setInfo }) {
             key={"delete"}
             icon={<DeleteIcon />}
             label="Delete"
-            onClick={() => removeCategories("categories", params?._id)}
+            onClick={() => removeCategories("categories", _id)}
             sx={btnStyle}
           />,
         ];

@@ -41,7 +41,7 @@ const useCategoriesCall = () => {
   const updateCategories = async (url, body) => {
     dispatch(fetchStart());
     try {
-      await axiosWithToken.put(`${url}/${body.id}`, body);
+      await axiosWithToken.put(`${url}/${body._id}`, body);
       categoriesList(url);
       toastSuccessNotify("Categorie updated");
     } catch (error) {

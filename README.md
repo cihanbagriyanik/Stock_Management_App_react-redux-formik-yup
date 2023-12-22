@@ -1,61 +1,56 @@
 # Stock App
 
-Yüklü Olan Paketler
+![ezgif com-speed](https://github.com/cihanbagriyanik/Stock_Management_App_react-redux-formik-yup/assets/132518854/7d3ac39f-f67d-4c8f-9ccf-f5b1622be43d)
 
-- MUI and MUI icons
-- axios
-- redux/redux toolkit
-- react-toastify
-- react-router-dom
-- tremor/react and tailwindcss
-- mui x data grid
+# Installed Packages
 
-# Formik ve Yup
+MUI and MUI icons
+axios
+redux/redux toolkit
+react-toastify
+react-router-dom
+tremor/react and tailwindcss
+mui x data grid
+Formik and Yup
 
-**_“Build forms in React, without the tears.”_**
+"Build forms in React, without the tears."
 
-Gözyaşları olmadan reactta formlşar oluşturun.
+Create forms in React without tears.
 
-_Jared Palmer, Creator of Formik._
+Formik is a library designed to simplify form management in React applications. It provides features that make form state management, value tracking, displaying error messages, and submitting the form to the server easy. It also offers useful helper functions for tracking form values, controlling form status, and organizing the structure of forms.
 
-Formik, React uygulamalarında form yönetimini kolaylaştırmak için tasarlanmış bir kütüphanedir. Formik, form state yönetimini, değerlerin izlenmesini, hata mesajlarının görüntülenmesini ve formun sunucuya gönderilmesini kolaylaştıran bir dizi özelliği sağlar. Aynı zamanda formun değerlerini takip etmek, formun durumunu kontrol etmek ve formların yapısını düzenlemek için kullanışlı yardımcı işlevler sunar.
+Yup, on the other hand, is a schema-based validation library used to define form validation rules. It is employed to specify requirements for form fields, data types, length constraints, custom validation functions, and more. Yup validates input values according to these rules and generates error messages when needed.
 
-Yup ise form doğrulama kurallarını tanımlamak için kullanılan bir şema tabanlı doğrulama kütüphanesidir. Yup, formun alanlarını, gereklilikleri, veri türlerini, uzunluk sınırlamalarını, özel doğrulama işlevlerini vb. tanımlamak için kullanılır. Formun giriş değerlerini bu kurallara göre doğrular ve hata mesajları üretir.
+Advantages of Formik and Yup:
 
-Formik ve Yup'ın avantajları şunlardır:
+Easy to use: Formik simplifies the management of form processes, handling form state, input values, and error messages automatically.
+Validation: Yup provides powerful schema-based validation to check the accuracy of form inputs, allowing you to display appropriate error messages for invalid entries.
+Flexibility: Formik and Yup together offer a flexible form management solution. You can customize forms according to your needs using customizable components and functions.
+Formik, being a library for simplifying form management in React applications, has the following advantages:
 
-1. Kolay kullanım: Formik, form işlemlerini kolayca yönetmenizi sağlar. Form state'i, giriş değerlerini ve hata mesajlarını otomatik olarak yönetir, böylece bu işleri manuel olarak yapmak zorunda kalmazsınız.
-2. Doğrulama: Yup, form girişlerinin doğruluğunu kontrol etmek için güçlü bir şema tabanlı doğrulama sağlar. Kullanıcıların girdikleri verileri belirli kurallara göre kontrol edebilir ve hatalı girişler için uygun hata mesajlarını görüntüleyebilirsiniz.
-3. Esneklik: Formik ve Yup, birlikte çalışarak esnek bir form yönetimi çözümü sunar. Özelleştirilebilir bileşenler ve işlevler kullanarak formları ihtiyaçlarınıza göre özelleştirebilirsiniz.
+Form State Management: Formik facilitates form state management, automatically tracking and updating values, selected options, and other form states for input fields.
+Tracking Values: Formik monitors the value of each input field in the form, allowing you to receive instant feedback when users enter or modify values.
+Displaying Error Messages: Formik makes it easy to handle error situations in your form, enabling you to use custom error components and provide instant feedback for entries that do not comply with validation rules.
+Submitting the Form to the Server: Formik streamlines the process of submitting forms to the server, helping with necessary tasks to transmit form data and manage server responses.
+Helper Functions: Formik offers useful helper functions for organizing and controlling the structure of forms. For example, you can easily check the validation status of the form, clear input fields, reset the form, or restart the form.
+Yup is a schema-based validation library used to define form validation rules. Some features of Yup and how it is used are explained below:
 
-Formik, React uygulamalarında form yönetimini kolaylaştıran bir kütüphanedir ve aşağıdaki avantajlara sahiptir:
+Schema Definition: Yup allows you to define form validation rules. For instance, you can specify requirements for fields, data types, minimum/maximum length, custom validation functions, etc.
+Validation Rules: Yup can combine a set of validation rules and apply these rules to the fields of the form. For example, required() indicates that a field cannot be left blank, while email() specifies that a field must be a valid email address.
+Error Messages: Yup generates error messages for entries that do not comply with form validation rules. You can customize error messages or use default ones.
+Yup GitHub
+Formik Documentation
 
-1. Form State Yönetimi: Formik, form state yönetimini kolaylaştırır. Formunuzdaki giriş alanlarındaki değerleri, seçili seçenekleri ve diğer form durumunu izler ve günceller. Bu sayede form verilerini manuel olarak yönetmek zorunda kalmazsınız.
-2. Değerlerin İzlenmesi: Formik, formdaki her bir giriş alanının değerini izler ve değişiklikleri algılar. Bu şekilde, kullanıcı formdaki herhangi bir alana giriş yaptığında veya bir değeri değiştirdiğinde anında geri bildirim alabilirsiniz.
-3. Hata Mesajlarının Görüntülenmesi: Formik, formunuzdaki hata durumlarını kolayca ele almanıza olanak tanır. Hata mesajlarını görüntülemek için özel hata bileşenlerini kullanabilir ve formun doğrulama kurallarına uymayan girişlere anında geri bildirim verebilirsiniz.
-4. Formun Sunucuya Gönderilmesi: Formik, formun sunucuya gönderilmesini kolaylaştırır. Formun verilerini sunucuya iletmek için gerekli işlemleri yapmanızı sağlar ve sunucu yanıtlarını yönetmenize olanak tanır.
-5. Yardımcı İşlevler: Formik, formların yapısını düzenlemek ve kontrol etmek için kullanışlı yardımcı işlevler sunar. Örneğin, formun doğrulama durumunu kontrol etmek, giriş alanlarını temizlemek, formu sıfırlamak veya formu yeniden başlatmak gibi işlemleri kolaylıkla gerçekleştirebilirsiniz.
+Redux Persist
 
-Yup form doğrulama kurallarını tanımlamak için kullanılan bir şema tabanlı doğrulama kütüphanesidir. Yup'un bazı özellikleri ve nasıl kullanıldığı aşağıda açıklanmaktadır:
+Redux Persist is a library used to store data on local storage and/or Async Storage for Redux-based applications. It prevents data loss in the Redux store when the application is restarted or the page is refreshed.
 
-1. Şema Tanımlama: Yup ile form doğrulama kurallarını tanımlayabilirsiniz. Örneğin, alanların gerekliliğini, veri türünü, minimum/maximum uzunluğu, özel doğrulama işlevlerini vb. belirtebilirsiniz.
-2. Doğrulama Kuralları: Yup, bir dizi doğrulama kuralını birleştirebilir ve bu kuralların formun alanlarına uygulanmasını sağlar. Örneğin, **`required()`** bir alanın boş geçilemez olduğunu belirtirken, **`email()`** bir alanın geçerli bir e-posta adresi olması gerektiğini belirtir.
-3. Hata Mesajları: Yup, form doğrulama kurallarına uymayan girişler için hata mesajları üretir. Hata mesajlarını özelleştirebilir veya varsayılan hata mesajlarını kullanabilirsiniz.
+Using Redux Persist is quite simple. First, install the redux-persist library, then create a persistedReducer and a persistor using the persistReducer and persistStore functions. The persistedReducer works like a regular Redux reducer but uses a storage strategy provided by redux-persist to store data. The persistor is an instance of the persistedReducer and is set up with the Redux store using the persistStore function provided by redux-persist.
 
-https://github.com/jquense/yup
+For example, to create a persistedReducer and persistor using redux-persist, follow these steps:
 
-https://formik.org/
-
-# Redux Persist
-
-Redux Persist, Redux tabanlı uygulamaları için yerel depolama (local storage) ve/veya Async Storage üzerinde verileri saklamak için kullanılan bir kütüphanedir. Redux Persist, uygulamanın yeniden başlatılması veya sayfa yenilenmesi durumunda Redux store'daki verilerin kaybolmasını önlemek için kullanılır.
-
-Redux Persist'in kullanımı oldukça basittir. İlk olarak, `redux-persist` kütüphanesini yüklemeli ve `persistReducer` ve `persistStore` fonksiyonlarını kullanarak bir `persistedReducer` ve bir `persistor` oluşturmalısınız. `persistedReducer`, normal bir Redux reducer'ı gibi çalışır, ancak verileri saklamak için `redux-persist` tarafından sağlanan bir depolama stratejisi kullanır. `persistor`, `persistedReducer`'ın bir örneğidir ve `redux-persist` tarafından sağlanan `persistStore` fonksiyonunu kullanarak Redux store'u store ile birlikte ayarlanır.
-
-Örnek olarak, `redux-persist` kullanarak bir `persistedReducer` ve `persistor` oluşturmak için şu adımları izleyebilirsiniz:
-
-1. `redux-persist` kütüphanesini yükleyin: `npm install redux-persist`
-2. Redux store'unu oluştururken `persistReducer` kullanarak bir `persistedReducer` oluşturun:
+Install the redux-persist library: npm install redux-persist.
+When creating the Redux store, use persistReducer to create a persistedReducer:
 
 ```
 import { createStore } from 'redux';
@@ -75,7 +70,7 @@ const store = createStore(persistedReducer);
 
 ```
 
-1. `persistor`'u oluşturmak için `persistStore` fonksiyonunu kullanın:
+1. Use the persistStore function to create the persistor:
 
 ```
 import { persistStore } from 'redux-persist';
@@ -84,7 +79,7 @@ const persistor = persistStore(store);
 
 ```
 
-Bu şekilde oluşturduğunuz `persistedReducer` ve `persistor`, Redux store'unuzu yerel depolama veya Async Storage üzerinde saklamak için kullanılabilir.
+The persistedReducer and persistor created this way can be used to store your Redux store data on local storage or Async Storage.
 
 ```jsx
 import { PersistGate } from "redux-persist/integration/react";
@@ -102,21 +97,21 @@ const App = () => {
 };
 ```
 
-Daha fazla bilgi için, Redux Persist'in resmi dokümantasyonuna göz atabilirsiniz: https://github.com/rt2zz/redux-persist
+For more information, you can refer to the official documentation of
+Redux Persist: Redux Persist GitHub
 
-[Non serializable hatası için bakınız.](https://redux-toolkit.js.org/usage/usage-guide#use-with-redux-persist)
-
+For handling non-serializable errors, see here.
 ### Absolute Path ve Relative Path
 
-'Absolute Path' ve 'Relative Path' terimleri, React Router DOM bağlamında doğru şekilde kullanılmamaktadır. React Router DOM'da, yolları tanımlamak için 'yol' prop'u kullanılır ve yol yolunun ne kadar spesifik olduğunu belirler.
+Absolute Path and Relative Path
 
-Route path='search' element={ Home/ } / : Bu rota tanımı, 'arama' yol segmentine sahip herhangi bir URL ile eşleşir. '/search' ile başlayan herhangi bir URL ile eşleşir (ör. '/search/results', '/search/users', vb.).
+The terms 'Absolute Path' and 'Relative Path' are not used correctly in the context of React Router DOM. In React Router DOM, the 'path' prop is used to define paths, determining how specific the path is.
 
-Route path='/search' element={ Home/ } / : Bu rota tanımı yalnızca tam '/search' URL'si ile eşleşir. Yalnızca '/search' ile tam olarak eşleşen URL'lerle eşleşir ve '/search/results' veya '/search/users' gibi daha spesifik alt yollarla eşleşmez.
+Route path='search' element={ Home/ } /: This route definition matches any URL with the 'search' path segment. It matches any URL starting with '/search' (e.g., '/search/results', '/search/users', etc.).
+Route path='/search' element={ Home/ } /: This route definition only matches the exact '/search' URL. It matches only URLs that precisely match '/search' and does not match more specific sub-paths like '/search/results' or '/search/users'.
+In React Router DOM, a 'path' prefixed with the '/' character represents an "absolute path" relative to the root. 'Path' elements without a leading '/' represent a "relative path" based on the current URL.
 
-React Router DOM'da, başında '/' karakteri olan bir 'yol' pervanesi, köke göre “absolute path”i temsil eder. Başında '/' karakteri olmayan 'yol' öğeleri, geçerli URL'ye dayalı “relative path”i temsil eder.
-
-Nested routelarda alt yollar relative path ile tanımlandığında path kısmında üst yolu belirtmemize gerek kalmaz.
+Nested routes can define sub-paths with a relative path without explicitly specifying the parent path.
 
 ```jsx
 <Router>
@@ -137,7 +132,7 @@ Nested routelarda alt yollar relative path ile tanımlandığında path kısmın
 </Router>
 ```
 
-Ama nested routelarda alt yollarıda absolute path ile tanımlamak istersek o zaman path kısmında üst yolu da açık bir şekilde belirtmeliyiz:
+However, if you want to define sub-paths with an absolute path in nested routes, you need to explicitly specify the parent path:
 
 ```jsx
 <Router>
@@ -158,16 +153,17 @@ Ama nested routelarda alt yollarıda absolute path ile tanımlamak istersek o za
 </Router>
 ```
 
-## Public Klasörü ve CSS Mask Özelliği
+Public Folder and CSS Mask Feature
 
-- Public klasörüne konulan resimler vb. dosyaları react projemizde import etmeden sanki dosyamız public klasöründeymiş gibi direkt olarak yol vererek kullanabiliriz. Bunun sebebi react projeleri build edildiğinde index.html ve public klasörü içinde bulunan dosyalar aynı dizinde olurlar. Bizde drawer daki iconların yolunu bu şekilde vermiş olduk.
-- Css mask özelliği kullanarak dive iconları(.svg uzantılı resimler) yerleştirmiş olduk. Neden bgImage kullanmadık. Çünkü bgImage de resim divin tamamını kaplıyor. bu sefer arka plan rengini yansıtamıyoruz. O nedenle svg uzantılı resimlerde mask özelliğini kullanarak renk ayarlaması da yapabiliriz.
+Images and other files placed in the public folder can be used directly by specifying their path without importing them into the React project. This is because, when React projects are built, index.html and the files in the public folder are in the same directory. In this way, the paths for the icons in the drawer are provided.
 
-### Axios Instance ve Interceptors
+The CSS mask property is used to place icons (SVG images) inside a div. Why didn't we use bgImage? Because bgImage covers the entire div. In this case, we cannot reflect the background color. Therefore, using the mask property with SVG images allows us to adjust the color.
 
-Axios, HTTP istekleri yapmak için kullanılan bir kütüphanedir. Axios instance'ları, farklı endpoint'lere yönelik istekleri yönetmek için kullanışlıdır. Interceptor'lar ise isteklerin öncesinde ve sonrasında çalışan işlevlerdir ve örneğin token'ların otomatik olarak eklenmesi veya hata durumlarının ele alınması gibi işlemleri gerçekleştirmek için kullanılabilir.
+Axios Instance and Interceptors
 
-Axios instance'ı oluşturmak için `axios.create()` fonksiyonu kullanılır. Bu fonksiyon, özelleştirilmiş bir Axios instance'ı döndürür. Örneğin:
+Axios is a library used for making HTTP requests. Axios instances are useful for managing requests to different endpoints, and interceptors are functions that run before and after requests, performing tasks such as automatically adding tokens or handling error situations.
+
+To create an Axios instance, use the axios.create() function, which returns a customized Axios instance. For example::
 
 ```
 import axios from 'axios';
@@ -179,10 +175,9 @@ const instance = axios.create({
 
 ```
 
-Bu kod, `https://example.com/api` endpoint'ine yönelik istekler için bir Axios instance'ı oluşturur ve her isteğe `Authorization` başlığına `Token ${token}` değerini ekler.
+This code creates an Axios instance for requests to https://example.com/api and automatically adds the Authorization header with the Token ${token} value to each request.
 
-Interceptor'lar, `instance.interceptors` nesnesi üzerinden tanımlanabilirler. Örneğin:
-
+Interceptors can be defined using the instance.interceptors object. For example:
 ```
 instance.interceptors.request.use(
   (config) => {
@@ -208,4 +203,4 @@ instance.interceptors.response.use(
 
 ```
 
-Bu kod, `instance`'a interceptor'lar ekler. `request` interceptor'ı, istek göndermeden önce yapılacak işlemleri tanımlar ve `response` interceptor'ı, yanıt alındığında yapılacak işlemleri tanımlar. Bu interceptor'lar, isteklerin öncesinde veya sonrasında otomatik olarak çalıştırılır ve örneğin token'ların otomatik olarak eklenmesi veya hata durumlarının ele alınması gibi işlemleri gerçekleştirmek için kullanılabilir.
+This code adds interceptors to the instance. The request interceptor defines tasks to be performed before sending the request, and the response interceptor defines tasks to be performed when a response is received. Interceptors are automatically executed before or after requests, allowing tasks such as automatically adding tokens or handling error situations.

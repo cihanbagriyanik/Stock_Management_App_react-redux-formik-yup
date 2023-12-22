@@ -16,16 +16,8 @@ const useCategoriesCall = () => {
   const categoriesList = async () => {
     dispatch(fetchStart());
     try {
-      const [
-        categories,
-      ] = await Promise.all([
-        axiosWithToken(`categories`),
-      ]);
-      dispatch(
-        getCategories([
-          categories?.data?.data,
-        ])
-      );
+      const [categories] = await Promise.all([axiosWithToken(`categories`)]);
+      dispatch(getCategories([categories?.data?.data]));
       // console.log(categories);
     } catch (error) {
       dispatch(fetchFail());
@@ -62,6 +54,7 @@ const useCategoriesCall = () => {
 
   const removeCategories = async (url, id) => {
     dispatch(fetchStart());
+    // console.log(id);
     try {
       await axiosWithToken.delete(`${url}/${id}`);
       categoriesList(url);

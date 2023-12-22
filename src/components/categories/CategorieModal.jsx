@@ -8,14 +8,14 @@ const CategorieModal = ({ open, handleClose, info, setInfo }) => {
   const { createCategories, updateCategories } = useCategoriesCall();
 
   const handleChange = (e) => {
-    // console.log(e.target.id);
+    // console.log(e.target.value);
     setInfo({ ...info, [e.target.id]: e.target.value });
   };
 
+  // console.log(info);
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (info._id) {
+    if (info?._id) {
       updateCategories("categories", info);
     } else {
       createCategories("categories", info);
@@ -23,7 +23,7 @@ const CategorieModal = ({ open, handleClose, info, setInfo }) => {
 
     handleClose();
   };
-  console.log(info?.nameId);
+  // console.log(info);
   return (
     <Box>
       <Modal

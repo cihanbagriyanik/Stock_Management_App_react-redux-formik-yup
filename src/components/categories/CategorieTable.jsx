@@ -10,10 +10,11 @@ import { DataGrid, GridActionsCellItem, GridToolbar } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
 
 import useStockCall from "../../hooks/useCategoriesCall";
+import { CleaningServices } from "@mui/icons-material";
 
 export default function CategorieTable({ setOpen, info, setInfo }) {
   const { categories } = useSelector((state) => state.categories);
-  console.log(categories);
+  // console.log(categories);
   const { removeCategories } = useStockCall();
 
   function getRowId(row) {
@@ -56,7 +57,7 @@ export default function CategorieTable({ setOpen, info, setInfo }) {
       minWidth: 90,
       headerAlign: "center",
       align: "center",
-      renderCell: (params) => {
+      renderCell: ({ row: { name, params } }) => {
         return [
           <GridActionsCellItem
             key={"edit"}
@@ -64,7 +65,7 @@ export default function CategorieTable({ setOpen, info, setInfo }) {
             label="Edit"
             onClick={() => {
               setOpen(true);
-              setInfo({ name: params?.name });
+              setInfo({ name });
             }}
             sx={btnStyle}
           />,
@@ -72,7 +73,7 @@ export default function CategorieTable({ setOpen, info, setInfo }) {
             key={"delete"}
             icon={<DeleteIcon />}
             label="Delete"
-            onClick={() => removeCategories("categories", params?.id)}
+            onClick={() => removeCategories("categories", params?._id)}
             sx={btnStyle}
           />,
         ];

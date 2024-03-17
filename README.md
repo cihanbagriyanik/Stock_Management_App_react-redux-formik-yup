@@ -160,7 +160,7 @@ Once the application is running, you can use the different features provided to 
 
 Contributions to the Stock Management App project are welcome! If you'd like to contribute, please open a pull request with your proposed changes. Feedback and suggestions for improvements are also appreciated.
 
-### Backend
+## Backend
 
 The backend of the Stock Management App is powered by the StockAPI project. Below are the details of the backend:
 

@@ -1,4 +1,4 @@
-### Stock Management App
+# Stock Management App
 
 ![ezgif com-speed](https://github.com/cihanbagriyanik/Stock_Management_App_react-redux-formik-yup/assets/132518854/7d3ac39f-f67d-4c8f-9ccf-f5b1622be43d)
 

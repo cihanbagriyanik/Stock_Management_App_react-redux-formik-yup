@@ -183,4 +183,4 @@ The backend of the Stock Management App is powered by the StockAPI project. Belo
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for more information.
+This project is licensed under the MIT License. See the LICENSE file for more information.
